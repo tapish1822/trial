@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <!-- Bootstrap -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Buzz</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <style media="screen">
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      box-sizing: border-box;
+    }
+
+    .container-fluid {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background: #FFF;
+    }
+
+    /* ============= Animation background ========= */
+    .background {
+     background: linear-gradient(132deg,#0F044C, #001E6C, #035397, #FFAA4C,#FF6767,#FF3D68);
+      background-size: 400% 400%;
+      animation: Gradient 10s ease infinite;
+      position: relative;
+      height: 110vh;
+      width: 100%;
+      overflow: hidden;
+      padding: 0;
+      margin: 0px;
+    }
+
+    .cube {
+      position: absolute;
+      top: 80vh;
+      left: 45vw;
+      width: 10px;
+      height: 10px;
+      border: solid 1px #FB3640;
+      transform-origin: top left;
+      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+      animation: cube 10s ease-in forwards infinite;
+    }
+
+    .cube:nth-child(2n) {
+      border-color: #FB3640;
+    }
+
+    .cube:nth-child(2) {
+      animation-delay: 2s;
+      left: 25vw;
+      top: 40vh;
+    }
+
+    .cube:nth-child(3) {
+      animation-delay: 4s;
+      left: 75vw;
+      top: 50vh;
+    }
+
+    .cube:nth-child(4) {
+      animation-delay: 6s;
+      left: 90vw;
+      top: 10vh;
+    }
+
+    .cube:nth-child(5) {
+      animation-delay: 3s;
+      left: 10vw;
+      top: 85vh;
+    }
+
+    .cube:nth-child(6) {
+      animation-delay: 10s;
+      left: 50vw;
+      top: 10vh;
+    }
+
+    .cube:nth-child(7) {
+      animation-delay: 7s;
+      left: 40vw;
+      top: 10vh;
+    }
+
+    /* ================= Header ============ */
+    header {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* navbar */
+    nav {
+      color: #591BC5;
+      float: right;
+      margin: 30px 90px;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      float: left;
+      transition: .3s;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #FFF;
+      transition: .5;
+      font-size: 19px;
+      margin-left: 16px;
+    }
+
+    nav ul li:hover a {
+      text-decoration: none;
+      color: #FFF;
+      ;
+    }
+
+    nav ul li:hover {
+      height: 45px;
+      padding-top: 30px;
+      margin-top: -30px;
+
+      text-decoration: none;
+
+    }
+
+    /* Logo */
+    .logo {
+      width: 35px;
+      height: 35px;
+      background: #EFEEF5;
+      margin: 40px 63px;
+      float: left;
+      transform: rotate(-30deg);
+    }
+
+    .logo span {
+      color: #591BC5;
+      font-size: 2rem;
+      line-height: 1.4;
+      padding-left: 5px;
+      font-weight: bold;
+    }
+
+    /* Header content & title & button*/
+    .header-content {
+      margin-top: 25%;
+      text-align: center;
+      color: #EFEEF5;
+    }
+
+    .header-content h1 {
+font-family: 'Rammetto One', cursive;
+      font-size: 6em;
+      letter-spacing: 1px;
+    }
+
+    .header-content p {
+      font-family: 'Oleo Script', cursive;
+      font-size: 30px;
+      line-height: 1.5;
+      margin: 20px auto;
+    }
+
+    .header-content button {
+      width: 140px;
+      margin: 20px 10px;
+      color: #591BC5;
+      font-size: 17px;
+      border: 1px solid #EFEEF5;
+      font-weight: 500;
+      background: #EFEEF5;
+      border-radius: 20px;
+      padding: 10px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .header-content button:hover {
+      border-radius: 0;
+    }
+
+    /* Animate Background*/
+    @keyframes Gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes cube {
+      from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+      }
+    }
+
+    .box1 {
+      height: 700px;
+      width: 500px;
+      float: left;
+      padding-top: 100px;
+      padding-left: 50px;
+      padding-bottom: 100px;
+
+    }
+
+    .box2 {
+      height: 700px;
+      width: 650px;
+      float: right;
+      padding-top: 200px;
+      padding-right: 50px;
+      padding-bottom: 100px;
+    }
+    .box2  h1{
+      color: #FB3640;
+    }
+
+    p {
+      padding-top: 30px;
+      font-size: 1.5rem;
+    }
+
+    .hey {
+      padding-bottom: 1px;
+      padding-left: 90px;
+      text-align: center;
+    }
+
+    .hello {
+      padding-bottom: 13px;
+      padding-left: 80px;
+      text-align: center;
+    }
+
+    .mid {
+position: relative;
+bottom: 30px;
+
+    }
+    .d-block{
+      height: 800px;
+      width: 300px;
+      align-items: center;
+
+    }
+    #table{
+      background-color: #A799B7;
+    }
+
+    .carousel {
+      position: relative;
+    }
+
+    .carousel-item img {
+      padding-bottom: 100px;
+      object-fit: cover;
+    }
+
+    #carousel-thumbs {
+
+      background: rgba(255, 255, 255, .3);
+      bottom: 0;
+      left: 0;
+      padding: 0 50px;
+      right: 0;
+    }
+
+    #carousel-thumbs img {
+
+      border: 5px solid transparent;
+      cursor: pointer;
+    }
+
+    #carousel-thumbs img:hover {
+      border-color: rgba(255, 255, 255, .3);
+    }
+
+    #carousel-thumbs .selected img {
+      border-color: #fff;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+    }
+
+    @media all and (max-width: 767px) {
+      .carousel-container #carousel-thumbs img {
+        border-width: 3px;
+      }
+    }
+
+    @media all and (min-width: 576px) {
+      .carousel-container #carousel-thumbs {
+        position: absolute;
+      }
+    }
+
+    @media all and (max-width: 576px) {
+      .carousel-container #carousel-thumbs {
+        background: #ccccce;
+      }
+    }
+
+    .icon {
+      height: 50%;
+      width: 50%;
+      padding-bottom: 30px;
+    }
+    .count{
+      color: #FA4659;
+    }
+.mid{
+  color:#082032;
+}
+    .exp {
+      position: relative;
+      bottom: 88px;
+    }
+
+    .exp1 {
+      position: relative;
+      bottom: 75px;
+    }
+
+    .btn {
+      position: relative;
+      left: 290px;
+      bottom: 80px;
+      font-size: 1.7rem;
+      background-color: #dddddd;
+      border-radius: 4%;
+    }
+.btn :hover{
+  color: #595260;
+}
+
+    .box3 {
+      padding-top: 200px;
+
+      padding-left: 300px;
+      background-color: #dddddd;
+    }
+
+
+    .cntgirl {
+      height: 200px;
+      width: 230px;
+      float: right;
+      position: relative;
+      bottom: 210px;
+      right: 100px;
+    }
+
+    /* Create four equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 25%;
+      height: 20%;
+      padding: 10px;
+      height: 300px;
+      /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+
+    /* Set a style for all buttons */
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+
+    }
+
+    button:hover {
+      opacity: 0.2;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+      padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes animatezoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+
+
+  </style>
+
+<body>
+  <!-- Background & animion & navbar & title -->
+  <div class="container-fluid">
+    <!-- Background animtion-->
+    <div class="background">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+    <!-- header -->
+    <header>
+      <!-- navbar -->
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- logo -->
+      <div class="logo"><span>C</span></div>
+      <!-- title & content -->
+      <section class="header-content">
+        <h1>courseBuzz</h1>
+        <p>Crack.Code.Online</p>
+
+      </section>
+    </header>
+    <div>
+      <img src="C:\Users\HP\Documents\online course\html\girl1.jpg" class="box1" alt="">
+    </div>
+    <div class="box2">
+      <h1>About Us</h1>
+      <p>We help organizations of all types and sizes prepare for the path ahead — wherever it leads.
+        Our curated collection of business and technical courses help companies, governments, and nonprofits go further
+        by placing learning at the center of their strategies.</p>
+
+    </div>
+
+    <section id="table">
+      <div>
+        <table>
+          <tr>
+            <th class="hello">
+              <img class="icon" src="C:\Users\HP\Documents\online course\html\student.png" alt="happy-student">
+              <h3 class="count">67,789+</h3>
+              <p class="mid">Happy Students</p>
+            </th>
+            <th class="hey">
+              <img class="icon" src="C:\Users\HP\Documents\online course\html\chart.png" alt="">
+              <h3 class="count">80,234+</h3>
+              <p class="mid">Hours of Learning</p>
+            </th>
+            <th class="hey">
+              <img class="icon" src="C:\Users\HP\Documents\online course\html\earth-globe.png" alt="">
+              <h3 class="count">400+</h3>
+              <p class="mid">Cities Worldwide</p>
+            </th>
+            <th class="hey">
+              <img class="icon" src="C:\Users\HP\Documents\online course\html\test.png" alt="">
+              <h3 class="count">4.7/5</h3>
+              <p class="mid">Ratings</p>
+            </th>
+          </tr>
+
+        </table>
+      </div>
+    </section>
+
+    <div class="container mt-5">
+<div class="carousel-container position-relative row">
+
+<!-- Sorry! Lightbox doesn't work - yet. -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-slide-number="0">
+    <!-- <h1>heyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy</h1> -->
+    </div>
+    <div class="carousel-item" data-slide-number="1">
+      <img src="C:\Users\HP\Documents\online course\html\comt2.png" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+    </div>
+    <div class="carousel-item" data-slide-number="2">
+      <img src="C:\Users\HP\Documents\online course\html\comt3.png" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/qlYQb7B9vog/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+    </div>
+    <div class="carousel-item" data-slide-number="3">
+      <img src="C:\Users\HP\Documents\online course\html\comt4.png" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/QfEfkWk1Uhk/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+    </div>
+    <div class="carousel-item" data-slide-number="4">
+      <img src="C:\Users\HP\Documents\online course\html\comt5.png" class="d-block w-100" alt="..." data-remote="https://source.unsplash.com/CSIcgaLiFO0/" data-type="image" data-toggle="lightbox" data-gallery="example-gallery">
+    </div>
+  </div>
+</div>
+
+
+<!-- Carousel Navigation -->
+<div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="row mx-0">
+        <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected" data-target="#myCarousel" data-slide-to="0">
+          <img src="C:\Users\HP\Documents\online course\html\toi.jpg" class="img-fluid" alt="...">
+        </div>
+        <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="1">
+          <img src="C:\Users\HP\Documents\online course\html\tech in asia.png" class="img-fluid" alt="...">
+        </div>
+        <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="2">
+          <img src="C:\Users\HP\Documents\online course\html\tc.png" class="img-fluid" alt="...">
+        </div>
+        <div id="carousel-selector-3" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="3">
+          <img src="C:\Users\HP\Documents\online course\html\dm1.png" class="img-fluid" alt="...">
+            </div>
+        <div id="carousel-selector-4" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="4">
+          <img src="C:\Users\HP\Documents\online course\html\daily express.png" class="img-fluid" alt="...">
+        </div>
+        <div id="carousel-selector-5" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="5">
+          <img src="C:\Users\HP\Documents\online course\html\citizen.png" class="img-fluid" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel-thumbs" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-thumbs" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</div> <!-- /row -->
+</div> <!-- /container -->
+
+
+  <div class="box3">
+    <h2 class="exp">Experience courseBuzz</h2>
+    <h3 class="exp1">Get a FREE Online counselling today.</h3>
+    <img class="cntgirl" src="C:\Users\HP\Documents\online course\html\contactgirl.jpg" alt="">
+
+  </div>
+
+
+
+
+      <button class="btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+
+      <div id="id01" class="modal">
+
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="C:\Users\HP\Documents\online course\html\avatar-1606916_640.png" alt="Avatar" class="avatar">
+          </div>
+
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+
+          <div class="container" style="background-color:#bbb">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <script>
+      $('#myCarousel').carousel({
+        interval: false
+      });
+      $('#carousel-thumbs').carousel({
+        interval: false
+      });
+
+      // handles the carousel thumbnails
+      // https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnails-multiple-carousel
+      $('[id^=carousel-selector-]').click(function() {
+        var id_selector = $(this).attr('id');
+        var id = parseInt(id_selector.substr(id_selector.lastIndexOf('-') + 1));
+        $('#myCarousel').carousel(id);
+      });
+      // Only display 3 items in nav on mobile.
+      if ($(window).width() < 575) {
+        $('#carousel-thumbs .row div:nth-child(4)').each(function() {
+          var rowBoundary = $(this);
+          $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+        });
+        $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function() {
+          var boundary = $(this);
+          $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+        });
+      }
+      // Hide slide arrows if too few items.
+      if ($('#carousel-thumbs .carousel-item').length < 2) {
+        $('#carousel-thumbs [class^=carousel-control-]').remove();
+        $('.machine-carousel-container #carousel-thumbs').css('padding', '0 5px');
+      }
+      // when the carousel slides, auto update
+      $('#myCarousel').on('slide.bs.carousel', function(e) {
+        var id = parseInt($(e.relatedTarget).attr('data-slide-number'));
+        $('[id^=carousel-selector-]').removeClass('selected');
+        $('[id=carousel-selector-' + id + ']').addClass('selected');
+      });
+      // when user swipes, go next or previous
+      $('#myCarousel').swipe({
+        fallbackToMouseEvents: true,
+        swipeLeft: function(e) {
+          $('#myCarousel').carousel('next');
+        },
+        swipeRight: function(e) {
+          $('#myCarousel').carousel('prev');
+        },
+        allowPageScroll: 'vertical',
+        preventDefaultEvents: false,
+        threshold: 75
+      });
+      /*
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+      });
+      */
+
+      $('#myCarousel .carousel-item img').on('click', function(e) {
+        var src = $(e.target).attr('data-remote');
+        if (src) $(this).ekkoLightbox();
+      });
+
+      // Get the modal
+      var modal = document.getElementById('id01');
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      Number.prototype.format = function(n) {
+        var r = new RegExp('\\d(?=(\\d{3})+' + (n > 0 ? '\\.' : '$') + ')', 'g');
+        return this.toFixed(Math.max(0, Math.floor(n))).replace(r, '$&,');
+      };
+    </script>
+
+
+
+</body>
+
+</html>
